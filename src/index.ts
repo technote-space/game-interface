@@ -1,1 +1,5 @@
-export const add = (num1: number, num2: number): number => num1 + num2;
+export {GameSettings} from './types';
+
+export {IGame} from './IGame';
+
+export {GameBase} from './GameBase';
