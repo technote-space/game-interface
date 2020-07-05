@@ -15,8 +15,7 @@
   "env": {
     "node": true,
     "jest": true,
-    "es6": true,
-    "browser": true
+    "es6": true
   },
   "settings": {
     "react": {
@@ -28,29 +27,6 @@
       "error",
       {
         "properties": "always"
-      }
-    ],
-    "require-jsdoc": [
-      "error",
-      {
-        "require": {
-          "FunctionDeclaration": true,
-          "MethodDefinition": true,
-          "ClassDeclaration": true
-        }
-      }
-    ],
-    "valid-jsdoc": [
-      "error",
-      {
-        "requireReturn": false,
-        "preferType": {
-          "String": "string",
-          "Object": "object",
-          "Number": "number",
-          "Function": "function",
-          "Void": "void"
-        }
       }
     ],
     "quotes": [
@@ -143,7 +119,21 @@
       }
     ],
     "semi": [
-      "error"
+      "error",
+      "always"
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
     ]
   }
 }
