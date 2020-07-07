@@ -32,6 +32,8 @@ export abstract class GameBase implements IGame {
 
   protected abstract getGaSettings(): GaSettings;
 
+  public abstract clone(): IGame;
+
   public async reset(): Promise<void> {
     this._step = 0;
     await this.performReset();

@@ -6,6 +6,8 @@ export interface IGame {
   gaSettings: GaSettings;
   hasReached: boolean;
 
+  clone(): IGame;
+
   reset(): Promise<void>;
 
   action(index: number): Promise<void>;
