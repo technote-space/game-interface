@@ -5,8 +5,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/game-interface/badge)](https://www.codefactor.io/repository/github/technote-space/game-interface)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/technote-space/game-interface/blob/master/LICENSE)
 
-
-
 ## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -22,11 +20,14 @@
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Setup
-### yarn
-- `yarn setup`
-### npm
-- `npm run setup`
+## これはなに？
+汎用的なDB管理システム
+
+## スクリーンショット
+準備中...
+
+## 使用方法
+準備中...
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
