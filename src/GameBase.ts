@@ -1,28 +1,36 @@
 import {IGame} from './IGame';
-import {GameSettings} from './types';
+import {GameSettings, GaSettings} from './types';
 
 export abstract class GameBase implements IGame {
   private _step: number;
-  private readonly _settings: GameSettings;
+  private readonly _gameSettings: GameSettings;
+  private readonly _gaSettings: GaSettings;
 
   protected constructor() {
-    this._step     = 0;
-    this._settings = this.getSettings();
+    this._step         = 0;
+    this._gameSettings = this.getGameSettings();
+    this._gaSettings   = this.getGaSettings();
   }
 
   public get step(): number {
     return this._step;
   }
 
-  public get settings(): GameSettings {
-    return this._settings;
+  public get gameSettings(): GameSettings {
+    return this._gameSettings;
+  }
+
+  public get gaSettings(): GaSettings {
+    return this._gaSettings;
   }
 
   public get hasReached(): boolean {
-    return this.step >= this.settings.stepLimit;
+    return this.step >= this.gameSettings.stepLimit;
   }
 
-  protected abstract getSettings(): GameSettings;
+  protected abstract getGameSettings(): GameSettings;
+
+  protected abstract getGaSettings(): GaSettings;
 
   public async reset(): Promise<void> {
     this._step = 0;
@@ -67,7 +75,7 @@ export abstract class GameBase implements IGame {
   }
 
   public getScore(): number {
-    return this.performGetScore() - this.step / this.settings.stepLimit * this.correctionItemScale();
+    return this.performGetScore() - this.step / this.gameSettings.stepLimit * this.correctionItemScale();
   }
 
   protected abstract performGetScore(): number;
@@ -86,12 +94,12 @@ export abstract class GameBase implements IGame {
       return;
     }
 
-    canvas.width  = this.settings.width;
-    canvas.height = this.settings.height;
+    canvas.width  = this.gameSettings.width;
+    canvas.height = this.gameSettings.height;
 
     const style           = canvas.style;
-    style.width           = `${this.settings.width}px`;
-    style.height          = `${this.settings.height}px`;
+    style.width           = `${this.gameSettings.width}px`;
+    style.height          = `${this.gameSettings.height}px`;
     style.backgroundColor = this.getBackgroundColor();
 
     const context = canvas.getContext('2d');
@@ -102,7 +110,7 @@ export abstract class GameBase implements IGame {
     // eslint-disable-next-line no-magic-numbers
     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const pixels    = imageData.data;
-    this.performDrawPixels(pixels, this.settings.width, this.settings.height);
+    this.performDrawPixels(pixels, this.gameSettings.width, this.gameSettings.height);
     // eslint-disable-next-line no-magic-numbers
     context.putImageData(imageData, 0, 0);
     this.performDraw(context);
