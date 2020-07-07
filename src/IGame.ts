@@ -1,8 +1,9 @@
-import {GameSettings} from './types';
+import {GameSettings, GaSettings} from './types';
 
 export interface IGame {
   step: number;
-  settings: GameSettings;
+  gameSettings: GameSettings;
+  gaSettings: GaSettings;
   hasReached: boolean;
 
   reset(): Promise<void>;
