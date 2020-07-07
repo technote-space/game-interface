@@ -53,6 +53,14 @@ export abstract class GameBase implements IGame {
 
   protected abstract performPerceive(index: number): Promise<boolean>;
 
+  public actionExpression(index: number): string {
+    return `行動${index}`;
+  }
+
+  public perceiveExpression(index: number): string {
+    return `知覚${index}`;
+  }
+
   protected correctionItemScale(): number {
     // eslint-disable-next-line no-magic-numbers
     return 0.01;

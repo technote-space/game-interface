@@ -11,6 +11,10 @@ export interface IGame {
 
   perceive(index: number): Promise<boolean>;
 
+  actionExpression(index: number): string;
+
+  perceiveExpression(index: number): string;
+
   getScore(): number;
 
   draw(target: string | HTMLCanvasElement): void;
