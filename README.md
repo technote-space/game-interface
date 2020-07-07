@@ -21,7 +21,7 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## これはなに？
-汎用的なDB管理システム
+ゲームAI自動生成のためのゲームの定義
 
 ## スクリーンショット
 準備中...
