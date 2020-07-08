@@ -23,7 +23,9 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "webpack.common.js",
+    "babel.config.js"
   ],
   "dependencies": {},
   "devDependencies": {
