@@ -40,14 +40,6 @@ export abstract class GameBase implements IGame {
 
   public abstract clone(): IGame;
 
-  public async reset(): Promise<void> {
-    this._step        = 0;
-    this._hasFinished = false;
-    await this.performReset();
-  }
-
-  protected abstract performReset(): Promise<void>;
-
   public async action(index: number): Promise<void> | never {
     if (this.hasReached) {
       throw new Error('The step has reached to limit');
