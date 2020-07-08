@@ -1,8 +1,8 @@
-const webpack           = require('webpack');
-const path              = require('path');
-const NODE_ENV          = process.env.NODE_ENV;
-const PROJECT_ROOT      = path.resolve(__dirname, '../../..');
-const OUTPUT_DIR        = path.resolve(PROJECT_ROOT, 'build');
+const webpack      = require('webpack');
+const path         = require('path');
+const NODE_ENV     = process.env.NODE_ENV;
+const PROJECT_ROOT = path.resolve(__dirname, '../../..');
+const OUTPUT_DIR   = path.resolve(PROJECT_ROOT, 'build');
 
 module.exports = {
   plugins: [
@@ -25,6 +25,8 @@ module.exports = {
   output: {
     path: OUTPUT_DIR,
     filename: '[name].js',
+    library: 'LearningGame',
+    libraryTarget: 'window',
   },
   resolve: {
     mainFields: ['main', 'module'],
