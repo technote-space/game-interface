@@ -3,11 +3,13 @@ import {GameSettings, GaSettings} from './types';
 
 export abstract class GameBase implements IGame {
   private _step: number;
+  private _hasFinished: boolean;
   private readonly _gameSettings: GameSettings;
   private readonly _gaSettings: GaSettings;
 
   protected constructor() {
     this._step         = 0;
+    this._hasFinished  = false;
     this._gameSettings = this.getGameSettings();
     this._gaSettings   = this.getGaSettings();
   }
@@ -25,7 +27,11 @@ export abstract class GameBase implements IGame {
   }
 
   public get hasReached(): boolean {
-    return this.step >= this.gameSettings.stepLimit;
+    return this._hasFinished || this.step >= this.gameSettings.stepLimit;
+  }
+
+  protected onFinished(): void {
+    this._hasFinished = true;
   }
 
   protected abstract getGameSettings(): GameSettings;
@@ -35,7 +41,8 @@ export abstract class GameBase implements IGame {
   public abstract clone(): IGame;
 
   public async reset(): Promise<void> {
-    this._step = 0;
+    this._step        = 0;
+    this._hasFinished = false;
     await this.performReset();
   }
 
