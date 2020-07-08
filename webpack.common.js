@@ -27,7 +27,7 @@ module.exports = {
     filename: '[name].js',
   },
   resolve: {
-    mainFields: ['browser', 'main', 'module'],
+    mainFields: ['main', 'module'],
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   },
   module: {
