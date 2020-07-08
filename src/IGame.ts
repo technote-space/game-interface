@@ -8,8 +8,6 @@ export interface IGame {
 
   clone(): IGame;
 
-  reset(): Promise<void>;
-
   action(index: number): Promise<void>;
 
   perceive(index: number): Promise<boolean>;
