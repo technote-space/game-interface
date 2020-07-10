@@ -112,10 +112,16 @@ export abstract class GameBase implements IGame {
     // eslint-disable-next-line no-magic-numbers
     const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
     const pixels    = imageData.data;
+    this.preDrawPixels(pixels);
     this.performDrawPixels(pixels, this.gameSettings.width, this.gameSettings.height);
     // eslint-disable-next-line no-magic-numbers
     context.putImageData(imageData, 0, 0);
     this.performDraw(context);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  protected preDrawPixels(pixels: Uint8ClampedArray): void {
+    //
   }
 
   protected getBackgroundColor(): string {
