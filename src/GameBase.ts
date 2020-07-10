@@ -165,12 +165,12 @@ export abstract class GameBase implements IGame {
     };
   }
 
-  protected performDrawPixels(pixels: Uint8ClampedArray, width: number, height: number): void {
+  protected performDrawPixels(pixels: Uint8ClampedArray): void {
     // eslint-disable-next-line no-magic-numbers,id-length
-    for (let y = height; --y >= 0;) {
+    for (let y = this.gameSettings.height; --y >= 0;) {
       // eslint-disable-next-line no-magic-numbers,id-length
-      for (let x = width; --x >= 0;) {
-        const index  = (y * width + x) * 4; // eslint-disable-line no-magic-numbers
+      for (let x = this.gameSettings.width; --x >= 0;) {
+        const index  = (y * this.gameSettings.width + x) * 4; // eslint-disable-line no-magic-numbers
         const colors = this.getPixelColor(x, y);
         if (!colors) {
           continue;
