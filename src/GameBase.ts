@@ -76,7 +76,8 @@ export abstract class GameBase implements IGame {
   }
 
   public getScore(): number {
-    return this.performGetScore() - this.step / this.gameSettings.stepLimit * this.correctionItemScale();
+    // eslint-disable-next-line no-magic-numbers
+    return Math.max(0, this.performGetScore() - this.step / this.gameSettings.stepLimit * this.correctionItemScale());
   }
 
   protected abstract performGetScore(): number;
