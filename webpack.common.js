@@ -25,8 +25,7 @@ module.exports = {
   output: {
     path: OUTPUT_DIR,
     filename: '[name].js',
-    library: 'LearningGame',
-    libraryTarget: 'window',
+    libraryTarget: 'commonjs2',
   },
   resolve: {
     mainFields: ['main', 'module'],
