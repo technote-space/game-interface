@@ -84,10 +84,10 @@ export abstract class GameBase implements IGame {
 
   protected correctionItemScale(): number {
     // eslint-disable-next-line no-magic-numbers
-    return 0.0001;
+    return 0.001;
   }
 
-  protected getCorrectionItemScore(): number {
+  protected getCorrectionItemFitness(): number {
     if (this.step <= 0) { // eslint-disable-line no-magic-numbers
       return 0; // eslint-disable-line no-magic-numbers
     }
@@ -95,14 +95,19 @@ export abstract class GameBase implements IGame {
     return -this.correctionItemScale() * (Math.random() + 0.5) / this.step; // eslint-disable-line no-magic-numbers
   }
 
-  public getScore(): number {
+  public getFitness(): number {
+    const fitness = this.performGetFitness();
+    if (fitness >= 1) { // eslint-disable-line no-magic-numbers
+      return fitness + 1 / this.step; // eslint-disable-line no-magic-numbers
+    }
+
     return Math.max(
       0, // eslint-disable-line no-magic-numbers
-      this.performGetScore() + this.getCorrectionItemScore(),
+      fitness + this.getCorrectionItemFitness(),
     );
   }
 
-  protected abstract performGetScore(): number;
+  protected abstract performGetFitness(): number;
 
   private static getCanvas(target: string | HTMLCanvasElement): HTMLCanvasElement {
     if (typeof target === 'string') {

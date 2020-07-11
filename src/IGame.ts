@@ -17,7 +17,7 @@ export interface IGame {
 
   perceiveExpression(index: number): string;
 
-  getScore(): number;
+  getFitness(): number;
 
   draw(target: string | HTMLCanvasElement): void;
 }
