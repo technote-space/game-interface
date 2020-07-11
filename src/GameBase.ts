@@ -84,7 +84,7 @@ export abstract class GameBase implements IGame {
 
   protected correctionItemScale(): number {
     // eslint-disable-next-line no-magic-numbers
-    return 0.0001;
+    return 0.001;
   }
 
   protected getCorrectionItemFitness(): number {
@@ -96,9 +96,14 @@ export abstract class GameBase implements IGame {
   }
 
   public getFitness(): number {
+    const fitness = this.performGetFitness();
+    if (fitness >= 1) { // eslint-disable-line no-magic-numbers
+      return fitness + 1 / this.step; // eslint-disable-line no-magic-numbers
+    }
+
     return Math.max(
       0, // eslint-disable-line no-magic-numbers
-      this.performGetFitness() + this.getCorrectionItemFitness(),
+      fitness + this.getCorrectionItemFitness(),
     );
   }
 
