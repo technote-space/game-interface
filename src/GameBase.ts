@@ -84,12 +84,14 @@ export abstract class GameBase implements IGame {
 
   protected correctionItemScale(): number {
     // eslint-disable-next-line no-magic-numbers
-    return 0.01;
+    return 0.0001;
   }
 
   public getScore(): number {
-    // eslint-disable-next-line no-magic-numbers
-    return Math.max(0, this.performGetScore() - this.step / this.gameSettings.stepLimit * this.correctionItemScale());
+    return Math.max(
+      0, // eslint-disable-line no-magic-numbers
+      this.performGetScore() - this.correctionItemScale() * (Math.random() + 0.5) / this.step, // eslint-disable-line no-magic-numbers
+    );
   }
 
   protected abstract performGetScore(): number;
