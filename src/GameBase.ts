@@ -87,10 +87,18 @@ export abstract class GameBase implements IGame {
     return 0.0001;
   }
 
+  protected getCorrectionItemScore(): number {
+    if (this.step <= 0) { // eslint-disable-line no-magic-numbers
+      return 0; // eslint-disable-line no-magic-numbers
+    }
+
+    return -this.correctionItemScale() * (Math.random() + 0.5) / this.step; // eslint-disable-line no-magic-numbers
+  }
+
   public getScore(): number {
     return Math.max(
       0, // eslint-disable-line no-magic-numbers
-      this.performGetScore() - this.correctionItemScale() * (Math.random() + 0.5) / this.step, // eslint-disable-line no-magic-numbers
+      this.performGetScore() + this.getCorrectionItemScore(),
     );
   }
 
