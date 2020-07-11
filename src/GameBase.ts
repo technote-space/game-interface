@@ -56,7 +56,6 @@ export abstract class GameBase implements IGame {
       throw new Error('The step has reached to limit');
     }
 
-    this._step++;
     return this.performPerceive(index);
   }
 
