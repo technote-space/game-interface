@@ -3,12 +3,14 @@ import {GameSettings, GaSettings} from './types';
 
 export abstract class GameBase implements IGame {
   private _step: number;
+  private _actionStep: number;
   private _hasFinished: boolean;
   private readonly _gameSettings: GameSettings;
   private readonly _gaSettings: GaSettings;
 
   protected constructor() {
     this._step         = 0;
+    this._actionStep   = 0;
     this._hasFinished  = false;
     this._gameSettings = this.getGameSettings();
     this._gaSettings   = this.getGaSettings();
@@ -16,6 +18,10 @@ export abstract class GameBase implements IGame {
 
   public get step(): number {
     return this._step;
+  }
+
+  public get actionStep(): number {
+    return this._actionStep;
   }
 
   public get gameSettings(): GameSettings {
@@ -26,8 +32,13 @@ export abstract class GameBase implements IGame {
     return this._gaSettings;
   }
 
+  private get stepLimit(): number {
+    // eslint-disable-next-line no-magic-numbers
+    return this.gameSettings.stepLimit ?? (this.gameSettings.actionLimit * 10);
+  }
+
   public get hasReached(): boolean {
-    return this._hasFinished || this.step >= this.gameSettings.stepLimit;
+    return this._hasFinished || this.actionStep >= this.gameSettings.actionLimit || this.step >= this.stepLimit;
   }
 
   protected onFinished(): void {
@@ -46,6 +57,7 @@ export abstract class GameBase implements IGame {
     }
 
     this._step++;
+    this._actionStep++;
     await this.performAction(index);
   }
 
@@ -56,6 +68,7 @@ export abstract class GameBase implements IGame {
       throw new Error('The step has reached to limit');
     }
 
+    this._step++;
     return this.performPerceive(index);
   }
 

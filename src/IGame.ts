@@ -2,6 +2,7 @@ import {GameSettings, GaSettings} from './types';
 
 export interface IGame {
   step: number;
+  actionStep: number;
   gameSettings: GameSettings;
   gaSettings: GaSettings;
   hasReached: boolean;
