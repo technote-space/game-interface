@@ -87,7 +87,7 @@ export abstract class GameBase implements IGame {
     return 0.0001;
   }
 
-  protected getCorrectionItemScore(): number {
+  protected getCorrectionItemFitness(): number {
     if (this.step <= 0) { // eslint-disable-line no-magic-numbers
       return 0; // eslint-disable-line no-magic-numbers
     }
@@ -95,14 +95,14 @@ export abstract class GameBase implements IGame {
     return -this.correctionItemScale() * (Math.random() + 0.5) / this.step; // eslint-disable-line no-magic-numbers
   }
 
-  public getScore(): number {
+  public getFitness(): number {
     return Math.max(
       0, // eslint-disable-line no-magic-numbers
-      this.performGetScore() + this.getCorrectionItemScore(),
+      this.performGetFitness() + this.getCorrectionItemFitness(),
     );
   }
 
-  protected abstract performGetScore(): number;
+  protected abstract performGetFitness(): number;
 
   private static getCanvas(target: string | HTMLCanvasElement): HTMLCanvasElement {
     if (typeof target === 'string') {
