@@ -82,17 +82,9 @@ export abstract class GameBase implements IGame {
     return `知覚${index}`;
   }
 
-  protected correctionItemScale(): number {
-    // eslint-disable-next-line no-magic-numbers
-    return 0.001;
-  }
-
   protected getCorrectionItemFitness(): number {
-    if (this.step <= 0) { // eslint-disable-line no-magic-numbers
-      return 0; // eslint-disable-line no-magic-numbers
-    }
-
-    return -this.correctionItemScale() * (Math.random() + 0.5) / this.step; // eslint-disable-line no-magic-numbers
+    // eslint-disable-next-line no-magic-numbers
+    return 0;
   }
 
   public getFitness(): number {
