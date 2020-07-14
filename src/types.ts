@@ -11,6 +11,7 @@ export type GaSettings = Partial<{
   nodeCount: number,
 }>;
 export type GameSettings = {
+  name: string;
   width: number;
   height: number;
   fps: number;
