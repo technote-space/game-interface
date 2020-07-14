@@ -90,7 +90,7 @@ export abstract class GameBase implements IGame {
   public getFitness(): number {
     const fitness = this.performGetFitness();
     if (fitness >= 1) { // eslint-disable-line no-magic-numbers
-      return fitness + 1 / this.step; // eslint-disable-line no-magic-numbers
+      return fitness + 1 / (this.actionStep + this.step); // eslint-disable-line no-magic-numbers
     }
 
     return Math.max(
