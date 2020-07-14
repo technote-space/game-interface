@@ -12,6 +12,7 @@ export type GaSettings = Partial<{
 }>;
 export type GameSettings = {
   name: string;
+  needTestRun?: boolean;
   width: number;
   height: number;
   fps: number;
