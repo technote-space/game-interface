@@ -16,7 +16,6 @@ export type GameSettings = {
   width: number;
   height: number;
   fps: number;
-  playerFps?: number;
   actionLimit: number;
   stepLimit?: number;
   perceptionNumber: number
