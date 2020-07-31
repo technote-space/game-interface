@@ -9,9 +9,9 @@ export interface IGame {
 
   clone(): IGame;
 
-  action(index: number): Promise<void>;
+  action(index: number): void;
 
-  perceive(index: number): Promise<boolean>;
+  perceive(index: number): boolean;
 
   actionExpression(index: number): string;
 

@@ -51,19 +51,19 @@ export abstract class GameBase implements IGame {
 
   public abstract clone(): IGame;
 
-  public async action(index: number): Promise<void> | never {
+  public action(index: number): void | never {
     if (this.hasReached) {
       throw new Error('The step has reached to limit');
     }
 
     this._step++;
     this._actionStep++;
-    await this.performAction(index);
+    this.performAction(index);
   }
 
-  protected abstract performAction(index: number): Promise<void>;
+  protected abstract performAction(index: number): void;
 
-  public async perceive(index: number): Promise<boolean> | never {
+  public perceive(index: number): boolean | never {
     if (this.hasReached) {
       throw new Error('The step has reached to limit');
     }
@@ -72,7 +72,7 @@ export abstract class GameBase implements IGame {
     return this.performPerceive(index);
   }
 
-  protected abstract performPerceive(index: number): Promise<boolean>;
+  protected abstract performPerceive(index: number): boolean;
 
   public actionExpression(index: number): string {
     return `行動${index}`;
