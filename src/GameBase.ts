@@ -139,7 +139,7 @@ export abstract class GameBase implements IGame {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected preDrawPixels(pixels: Uint8ClampedArray): void {
+  protected preDrawPixels(_pixels: Uint8ClampedArray): void {
     //
   }
 
@@ -148,7 +148,7 @@ export abstract class GameBase implements IGame {
   }
 
   // eslint-disable-next-line id-length,@typescript-eslint/no-unused-vars
-  protected getPixelColor(x: number, y: number): [number, ...number[]] | undefined {
+  protected getPixelColor(_x: number, _y: number): [number, ...number[]] | undefined {
     return undefined;
   }
 
@@ -205,7 +205,7 @@ export abstract class GameBase implements IGame {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected performDraw(context: CanvasRenderingContext2D): void {
+  protected performDraw(_context: CanvasRenderingContext2D): void {
     //
   }
 }
