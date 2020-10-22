@@ -1,23 +1,23 @@
 {
   "name": "@technote-space/game-interface",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "",
-  "author": {
-    "name": "Technote",
-    "email": "technote.space@gmail.com",
-    "url": "https://technote.space"
-  },
-  "license": "MIT",
   "keywords": [
     "genetic algorithm"
   ],
   "homepage": "https://github.com/technote-space/game-interface",
+  "bugs": {
+    "url": "https://github.com/technote-space/game-interface/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/technote-space/game-interface.git"
   },
-  "bugs": {
-    "url": "https://github.com/technote-space/game-interface/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Technote",
+    "email": "technote.space@gmail.com",
+    "url": "https://technote.space"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,6 +26,13 @@
     "webpack.common.js",
     "babel.config.js"
   ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts'",
+    "test": "yarn lint",
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
+  },
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -44,12 +51,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "yarn lint",
-    "lint": "eslint 'src/**/*.ts' --cache",
-    "lint:fix": "eslint --fix 'src/**/*.ts'",
-    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
   }
 }
