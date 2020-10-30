@@ -1,23 +1,23 @@
 {
   "name": "@technote-space/game-interface",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "",
-  "author": {
-    "name": "Technote",
-    "email": "technote.space@gmail.com",
-    "url": "https://technote.space"
-  },
-  "license": "MIT",
   "keywords": [
     "genetic algorithm"
   ],
   "homepage": "https://github.com/technote-space/game-interface",
+  "bugs": {
+    "url": "https://github.com/technote-space/game-interface/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/technote-space/game-interface.git"
   },
-  "bugs": {
-    "url": "https://github.com/technote-space/game-interface/issues"
+  "license": "MIT",
+  "author": {
+    "name": "Technote",
+    "email": "technote.space@gmail.com",
+    "url": "https://technote.space"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,30 +26,30 @@
     "webpack.common.js",
     "babel.config.js"
   ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.ts' --cache",
+    "lint:fix": "eslint --fix 'src/**/*.ts'",
+    "test": "yarn lint",
+    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
+  },
   "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@types/jest": "^26.0.14",
-    "@types/node": "^14.11.8",
-    "@typescript-eslint/eslint-plugin": "^4.4.1",
-    "@typescript-eslint/parser": "^4.4.1",
-    "eslint": "^7.11.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
     "husky": "^4.3.0",
-    "jest": "^26.5.3",
-    "jest-circus": "^26.5.3",
-    "lint-staged": "^10.4.0",
-    "ts-jest": "^26.4.1",
-    "typescript": "^4.0.3"
+    "jest": "^26.6.1",
+    "jest-circus": "^26.6.1",
+    "lint-staged": "^10.5.0",
+    "ts-jest": "^26.4.3",
+    "typescript": "^4.0.5"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "scripts": {
-    "build": "tsc",
-    "test": "yarn lint",
-    "lint": "eslint 'src/**/*.ts' --cache",
-    "lint:fix": "eslint --fix 'src/**/*.ts'",
-    "update": "npx npm-check-updates -u && yarn install && yarn upgrade && yarn audit"
   }
 }
