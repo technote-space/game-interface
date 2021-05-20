@@ -1,6 +1,6 @@
 {
   "name": "@technote-space/game-interface",
-  "version": "0.5.25",
+  "version": "0.5.26",
   "description": "",
   "keywords": [
     "genetic algorithm"
@@ -41,9 +41,9 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@types/jest": "^26.0.23",
-    "@types/node": "^15.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0",
+    "@types/node": "^15.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
     "eslint": "^7.26.0",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
